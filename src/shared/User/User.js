@@ -1,14 +1,32 @@
 import React from 'react';
 import './User.css';
 
-const User = () => {
+const User = ({ user }) => {
   return (
-    <div className="User-container">
-      <div className="User-each">avatar</div>
-      <div className="User-each">name</div>
-      <div className="User-each">role</div>
-      <div className="User-each">status</div>
-    </div>
+    <>
+      <div className="User-container">
+        <div>
+          <img
+            src="/images/avatar.svg"
+            className={'User-avatar'}
+            alt="avatar"
+          />
+        </div>
+
+        <div className="User-info">
+          <div className="User-name">{user.info.name}</div>
+          <div className="User-email">{user.info.email}</div>
+        </div>
+
+        <div className="User-role">{user.role}</div>
+        <div className="User-status">
+          {/* {user.status} */}
+          <img src="/images/toggle.svg" alt="avatar" />
+        </div>
+      </div>
+
+      <div className="User-divider"></div>
+    </>
   );
 };
 
