@@ -1,0 +1,43 @@
+.table-container {
+  width: 1920px;
+  height: 1080px;
+  /* UI Properties */
+  /* background: transparent url('img/Rectangle 1.png') 0% 0% no-repeat padding-box; */
+  border-radius: 4px;
+  opacity: 1;
+  background: #f3f3f3;
+}
+
+.table-header {
+  height: 211px;
+  background: #ffffff 0% 0% no-repeat padding-box;
+  box-shadow: 0px 3px 6px #00000029;
+}
+
+.table-header-text {
+  position: absolute;
+  top: 96px;
+  left: 276px;
+  width: 234px;
+  height: 48px;
+  font: normal normal 600 36px/48px Segoe UI;
+  color: #000000;
+}
+
+.table-add {
+  position: absolute;
+  border-radius: 50%;
+  color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 40px;
+  top: 175px;
+  left: 159px;
+  width: 72px;
+  height: 72px;
+  background: #305eca 0% 0% no-repeat padding-box;
+}
+
+.table-main {
+}

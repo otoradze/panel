@@ -1,0 +1,10 @@
+.User-container {
+  width: 400px;
+  height: 100px;
+  display: flex;
+  border: 2px solid red;
+}
+
+.User-each {
+  margin-left: 20px;
+}
