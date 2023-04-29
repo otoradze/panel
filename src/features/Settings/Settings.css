@@ -189,6 +189,7 @@
   position: absolute;
   left: 150px;
   top: 230px;
+  border: 1px solid #77777c;
 }
 /* ------------ */
 
@@ -200,7 +201,7 @@
 .settings-permission-container {
   display: flex;
   justify-content: space-between;
-  margin-top: 71px;
+  margin-top: 70px;
 }
 
 .settings-permission-text {
@@ -208,9 +209,11 @@
   color: #000000;
 }
 
-/* .settings-permission-toggle {
-  
-} */
+.settings-permission-toggle {
+  cursor: pointer;
+  height: 22px;
+  margin-top: 7px;
+}
 
 .settings-superadmin-container {
   display: flex;
@@ -244,11 +247,15 @@
 .settings-group-text {
   font: normal normal 600 16px/21px Segoe UI;
   color: #000000;
-  margin-bottom: 25px;
+  margin-bottom: 22px;
+  margin-top: 8px;
+
+  /* border: 2px solid red; */
+  /* border: 2px solid red; */
 }
 
 .settings-group {
-  margin-top: 23px;
+  margin-top: 20px;
   margin-left: 20px;
   margin-bottom: 20px;
 }
@@ -264,12 +271,21 @@
   height: 6px;
   border-radius: 50%;
   background: #44a0d3;
-  margin-top: 8px;
+  margin-top: 10px;
+}
+
+.settings-checkbox-red {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #ff0000;
+  margin-top: 10px;
 }
 
 .settings-name {
   font: normal normal 600 16px/21px Segoe UI;
   margin-left: 12px;
+  color: #000000;
 }
 
 .settings-grou-each-left {
@@ -279,5 +295,5 @@
 .settings-triangle {
   position: absolute;
   right: 600px;
-  top: 0px;
+  top: 6px;
 }

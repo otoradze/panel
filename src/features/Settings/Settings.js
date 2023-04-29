@@ -2,14 +2,27 @@ import { useState } from 'react';
 import './Settings.css';
 
 const UserSettings = () => {
-  const [permission, setPermission] = useState([
-    { name: 'Permission11', toggle: true },
-    { name: 'Permission12', toggle: true },
-    { name: 'Permission13', toggle: true },
-    { name: 'Permission14', toggle: true },
-    { name: 'Permission15', toggle: true },
+  const [superAdmin, setSuperAdmin] = useState(false);
+  const [group1, setGroup1] = useState(false);
+  const [group2, setGroup2] = useState(false);
+  const [group3, setGroup3] = useState(false);
+
+  const [permissions, setPermissions] = useState([
+    { name: 'permission11', toggle: true },
+    { name: 'permission12', toggle: true },
+    { name: 'permission13', toggle: false },
+    { name: 'permission14', toggle: true },
+    { name: 'permission15', toggle: true },
   ]);
-  const [isPermission, setIsPermission1] = useState(true);
+
+  const toggle = (item, index) => {
+    const updated = [...permissions];
+    updated[index] = {
+      ...item,
+      toggle: !item.toggle,
+    };
+    setPermissions(updated);
+  };
 
   return (
     <div className="settings-container">
@@ -73,13 +86,13 @@ const UserSettings = () => {
                 <div className="settings-superadmin-text"> Super Admin</div>
                 <img
                   className="settings-permission-toggle"
-                  src="images/toggle.svg"
+                  src={`images/${superAdmin ? 'toggle.svg' : 'toggle-red.svg'}`}
+                  onClick={() => setSuperAdmin(!superAdmin)}
                 />
               </div>
               <div className="settings-permission-divider"></div>
               {/* -----groups---- */}
               <div className="settings-group-container">
-                {' '}
                 <img
                   src="images/cut-triangle.svg"
                   className="settings-triangle"
@@ -87,24 +100,34 @@ const UserSettings = () => {
                 <div className="settings-group-text">Permission group 1</div>
                 <img
                   className="settings-permission-toggle"
-                  src="images/toggle.svg"
+                  src={`images/${group1 ? 'toggle.svg' : 'toggle-red.svg'}`}
+                  onClick={() => setGroup1(!group1)}
                 />
               </div>
               {/* ----group1---- */}
               <div className="settings-group">
-                {isPermission &&
-                  permission.map((item) => {
-                    return (
-                      <div className="settings-group-each">
-                        <div className="settings-grou-each-left">
-                          <div className="settings-checkbox"></div>
-                          <div className="settings-name">{item.name}</div>
-                        </div>
-
-                        <img src="images/toggle.svg" />
+                {permissions.map((item, index) => {
+                  return (
+                    <div className="settings-group-each">
+                      <div className="settings-grou-each-left">
+                        <div
+                          className={`settings-${
+                            item.toggle ? 'checkbox' : 'checkbox-red'
+                          }`}
+                        ></div>
+                        <div className="settings-name">{item.name}</div>
                       </div>
-                    );
-                  })}
+
+                      <img
+                        className="settings-permission-toggle"
+                        src={`images/${
+                          item.toggle ? 'toggle.svg' : 'toggle-red.svg'
+                        }`}
+                        onClick={() => toggle(item, index)}
+                      />
+                    </div>
+                  );
+                })}
               </div>
               {/* ----group---- */}
               <div className="settings-permission-divider"></div>
@@ -116,7 +139,8 @@ const UserSettings = () => {
                 <div className="settings-group-text">Permission group 2</div>
                 <img
                   className="settings-permission-toggle"
-                  src="images/toggle.svg"
+                  src={`images/${group2 ? 'toggle.svg' : 'toggle-red.svg'}`}
+                  onClick={() => setGroup2(!group2)}
                 />
               </div>
               <div className="settings-permission-divider"></div>
@@ -128,7 +152,8 @@ const UserSettings = () => {
                 <div className="settings-group-text">Permission group 3</div>
                 <img
                   className="settings-permission-toggle"
-                  src="images/toggle.svg"
+                  src={`images/${group3 ? 'toggle.svg' : 'toggle-red.svg'}`}
+                  onClick={() => setGroup3(!group3)}
                 />
               </div>
               <div className="settings-permission-divider"></div>

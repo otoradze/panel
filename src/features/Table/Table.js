@@ -1,64 +1,19 @@
-import { useState } from 'react';
-import User from '../../shared/User/User';
-
+import { useState, useEffect } from 'react';
+import User from '../../shared/ui/User/User';
 import './Table.css';
 
-const Table = () => {
-  const [users, setUsers] = useState([
-    {
-      avatar: true,
-      info: {
-        name: 'Danniel Blichman',
-        email: 'danniel.blichman@testtask.com',
-      },
-      role: 'admin',
-      status: 'true',
-    },
-    {
-      avatar: true,
-      info: {
-        name: 'Margarette Jones',
-        email: 'margarette.jones@testtask.com',
-      },
-      role: 'admin',
-      status: 'true',
-    },
-    {
-      avatar: true,
-      info: {
-        name: 'Bethany Doe',
-        email: 'bethany.doe@testtask.com',
-      },
-      role: 'admin',
-      status: 'true',
-    },
-    {
-      avatar: true,
-      info: {
-        name: 'Samuel Jackson',
-        email: 'samuel.jackson@testtask.com',
-      },
-      role: 'admin',
-      status: 'true',
-    },
-    {
-      avatar: true,
-      info: {
-        name: 'Persival Blinn',
-        email: 'persival.blinn@testtask.com',
-      },
-      role: 'admin',
-      status: 'true',
-    },
-  ]);
+const Table = ({ addHandler, delHandler, statusHandler, users }) => {
   const categories = ['user', 'role', 'status', 'actions'];
+  const buttons = [1, 2, 3, 4];
 
   return (
     <div className="table-container">
       <div className="table-header-wrapper">
         <div className="table-header-container">
           <div className="table-header-text">Project Access</div>
-          <div className="table-add">+</div>
+          <div onClick={addHandler} className="table-add">
+            +
+          </div>
         </div>
       </div>
 
@@ -75,7 +30,7 @@ const Table = () => {
                         item === 'user' ? 'triangle.svg' : 'triangle-gray.svg'
                       }`}
                       className={'table-icon-triangle'}
-                      alt="polygon"
+                      alt="triangle"
                     />
                   )}
                 </div>
@@ -87,8 +42,38 @@ const Table = () => {
 
           <div className="table-users-container">
             {users.map((user) => {
-              return <User user={user} />;
+              return (
+                <User
+                  user={user}
+                  delHandler={delHandler}
+                  statusHandler={statusHandler}
+                />
+              );
             })}
+            <div className="table-footer">
+              <div className="table-count-container">
+                Records on Page
+                <div className="table-count-number">{users.length}</div>
+                <img
+                  src="images/triangle.svg"
+                  className="table-count-triangle"
+                />
+              </div>
+              {/* ----- buttons----- */}
+              <div className="table-pagination">
+                <div className="table-pagination-previous">Previous</div>
+                <div className="table-pagination-buttons">
+                  {buttons.map((item) => {
+                    return (
+                      <button className="table-pagination-button">
+                        {item}
+                      </button>
+                    );
+                  })}
+                </div>
+                <div className="table-pagination-next">Next</div>
+              </div>
+            </div>
           </div>
         </div>
       </div>

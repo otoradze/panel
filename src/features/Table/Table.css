@@ -32,8 +32,9 @@
   justify-content: center;
   align-items: center;
   font-size: 40px;
-  margin-top: 30px;
-  margin-left: 159px;
+  position: relative;
+  top: 30px;
+  left: 159px;
   width: 72px;
   height: 72px;
   background: #305eca 0% 0% no-repeat padding-box;
@@ -42,7 +43,7 @@
 
 .table-categories-divider {
   margin-top: 32px;
-  margin-left: 274px;
+  margin-left: 260px;
   width: 1550px;
   border-bottom: 2px solid #d8d8d8;
 }
@@ -57,7 +58,8 @@
 .table-main-container {
   width: 1920px;
   height: 869px;
-  border: 1px solid green;
+  min-width: 1920px;
+  /* border: 1px solid green; */
 }
 
 .table-categories {
@@ -114,7 +116,7 @@
 }
 
 .table-users-container {
-  margin-top: 60px;
+  margin-top: 40px;
   margin-left: 90px;
 }
 
@@ -122,3 +124,64 @@
   width: 13px;
   margin-left: 15px;
 } */
+
+.table-footer {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 42px;
+}
+
+.table-count-container {
+  display: flex;
+  width: 300px;
+  margin-left: 170px;
+  font: normal normal 300 16px/21px Segoe UI;
+  color: #000000;
+}
+
+.table-count-number {
+  margin-left: 23px;
+  font: normal normal bold 16px/21px Segoe UI;
+}
+
+.table-pagination {
+  margin-right: 106px;
+  width: 250px;
+  display: flex;
+}
+
+.table-count-triangle {
+  margin-top: 8px;
+  width: 13px;
+  margin-left: 7px;
+  height: 7px;
+}
+
+.table-pagination-previous {
+  font: normal normal 300 16px/21px Segoe UI;
+  cursor: pointer;
+  margin-top: 6px;
+}
+
+.table-pagination-next {
+  font: normal normal 300 16px/21px Segoe UI;
+  cursor: pointer;
+  margin-left: 10px;
+  margin-top: 6px;
+}
+
+.table-pagination-buttons {
+  display: flex;
+}
+
+.table-pagination-button {
+  background: #c6c6c6 0% 0% no-repeat padding-box;
+  box-shadow: 0px 3px 6px #00000029;
+  border-radius: 4px;
+  height: 32px;
+  width: 32px;
+  border: none;
+  cursor: pointer;
+  margin-left: 10px;
+  font-weight: bold;
+}
