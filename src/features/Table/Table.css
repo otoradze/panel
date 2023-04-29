@@ -1,9 +1,9 @@
 .table-container {
   border-radius: 4px;
-  /* background: transparent url('img/Rectangle 1.png') 0% 0% no-repeat padding-box; */
+  height: 1080px;
 }
 
-.table-header-container {
+.table-header-wrapper {
   height: 211px;
   background: #ffffff 0% 0% no-repeat padding-box;
   box-shadow: 0px 3px 6px #00000029;
@@ -11,16 +11,14 @@
   justify-content: center;
 }
 
-.table-header-child {
+.table-header-container {
   background: #ffffff 0% 0% no-repeat padding-box;
-  position: relative;
   min-width: 1920px;
 }
 
 .table-header-text {
-  position: absolute;
-  top: 96px;
-  left: 276px;
+  margin-top: 96px;
+  margin-left: 276px;
   width: 234px;
   height: 48px;
   font: normal normal 600 36px/48px Segoe UI;
@@ -28,15 +26,14 @@
 }
 
 .table-add {
-  position: absolute;
   border-radius: 50%;
   color: #ffffff;
   display: flex;
   justify-content: center;
   align-items: center;
   font-size: 40px;
-  top: 175px;
-  left: 159px;
+  margin-top: 30px;
+  margin-left: 159px;
   width: 72px;
   height: 72px;
   background: #305eca 0% 0% no-repeat padding-box;
@@ -44,32 +41,33 @@
 }
 
 .table-categories-divider {
-  position: absolute;
-  top: 113px;
-  left: 263px;
-  width: 1560px;
-  height: 2px;
-  border-bottom: 3px solid #d8d8d8;
+  margin-top: 32px;
+  margin-left: 274px;
+  width: 1550px;
+  border-bottom: 2px solid #d8d8d8;
 }
+
 /* ----------------- */
 
-.table-main-container {
+.table-main-wrapper {
   display: flex;
   justify-content: center;
 }
 
-.table-categories {
+.table-main-container {
   width: 1920px;
   height: 869px;
   border: 1px solid green;
-  position: absolute;
+}
+
+.table-categories {
+  display: flex;
 }
 
 .table-user {
-  position: absolute;
   display: flex;
-  top: 60px;
-  left: 276px;
+  margin-top: 60px;
+  margin-left: 276px;
   width: 38px;
   height: 21px;
   font: normal normal 600 16px/21px Segoe UI;
@@ -78,10 +76,9 @@
 }
 
 .table-role {
-  position: absolute;
   display: flex;
-  top: 60px;
-  left: 914px;
+  margin-top: 60px;
+  margin-left: 590px;
   width: 38px;
   height: 21px;
   font: normal normal 600 16px/21px Segoe UI;
@@ -90,10 +87,9 @@
 }
 
 .table-status {
-  position: absolute;
   display: flex;
-  top: 60px;
-  left: 1352px;
+  margin-top: 60px;
+  margin-left: 410px;
   width: 55px;
   height: 21px;
   font: normal normal 600 16px/21px Segoe UI;
@@ -102,10 +98,9 @@
 }
 
 .table-actions {
-  position: absolute;
   display: flex;
-  top: 60px;
-  left: 1717px;
+  margin-top: 60px;
+  margin-left: 320px;
   width: 67px;
   height: 21px;
   font: normal normal 600 16px/21px Segoe UI;
@@ -113,14 +108,16 @@
   text-transform: uppercase;
 }
 
-.table-icon-polygon {
+.table-icon-triangle {
   width: 13px;
   margin-left: 8px;
 }
 
 .table-users-container {
-  margin-top: 153px;
+  margin-top: 60px;
+  margin-left: 90px;
 }
+
 /* .table-icon-polygon-notFirst {
   width: 13px;
   margin-left: 15px;

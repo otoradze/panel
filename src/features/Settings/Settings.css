@@ -1,0 +1,283 @@
+.settings-container {
+  border-radius: 4px;
+  height: 1080px;
+}
+
+.settings-header-wrapper {
+  height: 211px;
+  background: #ffffff 0% 0% no-repeat padding-box;
+  box-shadow: 0px 3px 6px #00000029;
+  display: flex;
+  justify-content: center;
+}
+
+.settings-header-container {
+  background: #ffffff 0% 0% no-repeat padding-box;
+  min-width: 1920px;
+}
+
+.settings-header-text {
+  margin-top: 96px;
+  margin-left: 276px;
+  width: 234px;
+  height: 48px;
+  font: normal normal 600 36px/48px Segoe UI;
+  color: #000000;
+}
+
+.settings-add {
+  border-radius: 50%;
+  color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 40px;
+  margin-top: 30px;
+  margin-left: 159px;
+  width: 72px;
+  height: 72px;
+  background: #c6c6c6 0% 0% no-repeat padding-box;
+}
+
+.settings-main-container {
+  display: flex;
+  justify-content: center;
+}
+
+.settings-categories-container {
+  width: 1920px;
+  height: 869px;
+
+  display: flex;
+  justify-content: center;
+}
+
+.settings-categories {
+  width: 1540px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.settings-left {
+  width: 232px;
+  position: relative;
+}
+
+.settings-avatar {
+  width: 212px;
+  border-radius: 50%;
+  border: 10px solid #666666;
+  margin-top: 63px;
+}
+
+.settings-upload-text {
+  color: #b0acac;
+  font: normal normal 300 14px/19px Segoe UI;
+  text-transform: uppercase;
+  text-align: center;
+  margin-top: 14px;
+}
+
+.settings-user-info {
+  height: 112px;
+  margin-top: 31px;
+  font-size: 48px;
+  color: #000000;
+  font: normal normal 600 48px/48px Segoe UI;
+  text-align: center;
+}
+
+.settings-email {
+  color: #000000;
+  font: normal normal 300 16px/21px Segoe UI;
+  text-align: center;
+  margin-top: 12px;
+}
+
+.settings-invite-btn {
+  margin-top: 59px;
+  width: 209px;
+  height: 59px;
+  background: #7e7ef1;
+  margin-left: 15px;
+  font: normal normal 600 16px/21px Segoe UI;
+  border-radius: 100px;
+  border: none;
+  color: #ffffff;
+  cursor: pointer;
+  box-shadow: rgba(50, 50, 105, 0.15) 0px 2px 5px 0px,
+    rgba(0, 0, 0, 0.05) 0px 1px 1px 0px;
+}
+
+.settings-details-text {
+  margin-top: 71px;
+  height: 48px;
+  color: #000000;
+  font: normal normal 600 36px/48px Segoe UI;
+}
+
+.settings-active-container {
+  margin-top: 55px;
+  height: 21px;
+  display: flex;
+  margin-bottom: 20px;
+}
+
+.settings-active-toggle {
+  position: relative;
+  right: 60px;
+}
+
+.settings-active-text {
+  position: relative;
+  right: 50px;
+  height: 21px;
+  color: #000000;
+  font: normal normal 300 16px/21px Segoe UI;
+}
+
+.settings-active-bold {
+  font-weight: 700;
+  margin-left: 5px;
+}
+
+.settings-inputs-container {
+  width: 209px;
+  display: flex;
+  flex-direction: column;
+}
+
+.settings-save-btn {
+  width: 209px;
+  height: 59px;
+  background: #44a0d3;
+  font: normal normal 600 16px/21px Segoe UI;
+  border-radius: 100px;
+  border: none;
+  color: #ffffff;
+  cursor: pointer;
+  box-shadow: rgba(50, 50, 105, 0.15) 0px 2px 5px 0px,
+    rgba(0, 0, 0, 0.05) 0px 1px 1px 0px;
+  margin-top: 142px;
+}
+
+.settings-input {
+  width: 306px;
+  margin-top: 8px;
+  background: none;
+  border: none;
+}
+
+.settings-labels {
+  height: 16px;
+  font: normal normal 600 12px/16px Segoe UI;
+  color: #33a3dc;
+  margin-top: 25px;
+}
+
+.settings-divider {
+  border-bottom: 2px solid #c6c6c6;
+  margin-top: 4px;
+}
+
+.settings-key {
+  background: #7e7ef1;
+  width: 24px;
+  padding-inline: 27px;
+  padding-block: 14px;
+  border-radius: 30px;
+  position: absolute;
+  left: 150px;
+  top: 230px;
+}
+/* ------------ */
+
+.settings-right {
+  width: 591px;
+  height: 625px;
+}
+
+.settings-permission-container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 71px;
+}
+
+.settings-permission-text {
+  font: normal normal 600 36px/48px Segoe UI;
+  color: #000000;
+}
+
+/* .settings-permission-toggle {
+  
+} */
+
+.settings-superadmin-container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 54px;
+}
+
+.settings-superadmin-text {
+  font: normal normal bold 16px/21px Segoe UI;
+  margin-bottom: 25px;
+  color: #000000;
+}
+
+.settings-permission-divider {
+  border-bottom: 1px solid #d8d8d8;
+  width: 600px;
+}
+
+.settings-admin-text {
+  margin-top: 14px;
+  font: normal normal 300 16px/21px Segoe UI;
+}
+
+.settings-group-container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 14px;
+  position: relative;
+}
+
+.settings-group-text {
+  font: normal normal 600 16px/21px Segoe UI;
+  color: #000000;
+  margin-bottom: 25px;
+}
+
+.settings-group {
+  margin-top: 23px;
+  margin-left: 20px;
+  margin-bottom: 20px;
+}
+
+.settings-group-each {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 11px;
+}
+
+.settings-checkbox {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #44a0d3;
+  margin-top: 8px;
+}
+
+.settings-name {
+  font: normal normal 600 16px/21px Segoe UI;
+  margin-left: 12px;
+}
+
+.settings-grou-each-left {
+  display: flex;
+}
+
+.settings-triangle {
+  position: absolute;
+  right: 600px;
+  top: 0px;
+}

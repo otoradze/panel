@@ -1,4 +1,4 @@
-.User-container {
+.user-container {
   height: 60px;
   display: flex;
   width: 1650px;
@@ -7,21 +7,21 @@
   margin-top: 37px;
 }
 
-.User-container:first-child {
+.user-container:first-child {
   margin-top: 0;
 }
 
-.User-avatar {
+.user-avatar {
   border-radius: 50%;
   border: 3px solid #666666;
 }
 
-.User-info {
+.user-info {
   margin-left: 45px;
   width: 500px;
 }
 
-.User-role {
+.user-role {
   position: absolute;
   left: 740px;
   margin-top: 5px;
@@ -29,27 +29,49 @@
   color: #000000;
 }
 
-.User-status {
+.user-status {
   position: absolute;
   left: 1200px;
   margin-top: 5px;
-  border: 2px solid red;
 }
 
-.User-divider {
-  border: 1px solid #d8d8d8;
-  width: 1560px;
+.user-divider {
+  border-bottom: 1px solid #d8d8d8;
+  width: 1550px;
   /* margin-left: 167px; */
-  margin-left: 167px;
+  margin-left: 185px;
   position: absolute;
 }
 
-.User-name {
+.user-name {
   font: normal normal 600 16px/21px Segoe UI;
   color: #000000;
 }
 
-.User-email {
+.user-email {
   font: normal normal 300 16px/21px Segoe UI;
   color: #000000;
+}
+
+.user-toggle {
+  cursor: pointer;
+}
+
+.user-actions {
+  width: 100px;
+  height: 30px;
+  position: absolute;
+  right: 0;
+}
+
+.user-actions-settings {
+  width: 22px;
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+.user-actions-del {
+  width: 16px;
+  margin-left: 22px;
+  cursor: pointer;
 }

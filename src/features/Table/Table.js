@@ -55,35 +55,41 @@ const Table = () => {
 
   return (
     <div className="table-container">
-      <div className="table-header-container">
-        <div className="table-header-child">
+      <div className="table-header-wrapper">
+        <div className="table-header-container">
           <div className="table-header-text">Project Access</div>
           <div className="table-add">+</div>
         </div>
       </div>
 
-      <div className="table-main-container">
-        <div className="table-categories">
-          {categories.map((item) => {
-            return (
-              <div className={`table-${item}`}>
-                {item}
-                {item !== 'actions' && (
-                  <img
-                    src="/images/Polygon.svg"
-                    className={'table-icon-polygon'}
-                    alt="polygon"
-                  />
-                )}
-              </div>
-            );
-          })}
+      <div className="table-main-wrapper">
+        <div className="table-main-container">
+          <div className="table-categories">
+            {categories.map((item) => {
+              return (
+                <div className={`table-${item}`}>
+                  {item}
+                  {item !== 'actions' && (
+                    <img
+                      src={`/images/${
+                        item === 'user' ? 'triangle.svg' : 'triangle-gray.svg'
+                      }`}
+                      className={'table-icon-triangle'}
+                      alt="polygon"
+                    />
+                  )}
+                </div>
+              );
+            })}
+          </div>
+
           <div className="table-categories-divider" />
-        </div>
-        <div className="table-users-container">
-          {users.map((user) => {
-            return <User user={user} />;
-          })}
+
+          <div className="table-users-container">
+            {users.map((user) => {
+              return <User user={user} />;
+            })}
+          </div>
         </div>
       </div>
     </div>
