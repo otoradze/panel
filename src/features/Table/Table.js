@@ -2,7 +2,13 @@ import { useState, useEffect } from 'react';
 import User from '../../shared/ui/User/User';
 import './Table.css';
 
-const Table = ({ addHandler, delHandler, statusHandler, users }) => {
+const Table = ({
+  addHandler,
+  delHandler,
+  statusHandler,
+  users,
+  userPicker,
+}) => {
   const categories = ['user', 'role', 'status', 'actions'];
   const buttons = [1, 2, 3, 4];
 
@@ -47,6 +53,7 @@ const Table = ({ addHandler, delHandler, statusHandler, users }) => {
                   user={user}
                   delHandler={delHandler}
                   statusHandler={statusHandler}
+                  userPicker={userPicker}
                 />
               );
             })}

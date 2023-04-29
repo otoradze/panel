@@ -1,5 +1,10 @@
 import { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  useParams,
+} from 'react-router-dom';
 import Table from './features/Table/Table';
 import Settings from './features/Settings/Settings';
 import { data } from './shared/modal/data';
@@ -14,6 +19,7 @@ let getLocalStorage = () => {
 
 function App() {
   let [users, setUsers] = useState(getLocalStorage());
+  let [user, setUser] = useState('');
 
   useEffect(() => {
     localStorage.setItem('users', JSON.stringify(users));
@@ -34,7 +40,6 @@ function App() {
   };
 
   const statusHandler = (id) => {
-    console.log(id);
     const updated = users.map((item) => {
       if (item.id === id) {
         return { ...item, status: !item.status };
@@ -48,6 +53,12 @@ function App() {
     const filtered = users.filter((item) => item.id !== id);
     setUsers(filtered);
   };
+
+  const userPicker = (id) => {
+    const filtered = users.filter((item) => item.id === id);
+    setUser(filtered[0]);
+  };
+
   return (
     <div className="App">
       <Router>
@@ -57,19 +68,15 @@ function App() {
             element={
               <Table
                 addHandler={addHandler}
-                dellHandler={delHandler}
+                delHandler={delHandler}
                 statusHandler={statusHandler}
                 users={users}
+                userPicker={userPicker}
               />
             }
           />
-          <Route
-            path="/Settings"
-            element={
-              <Settings />
-              // personal={personal}
-            }
-          />
+
+          <Route path="/Settings" element={<Settings user={user} />} />
         </Routes>
       </Router>
     </div>

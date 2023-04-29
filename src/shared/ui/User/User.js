@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './User.css';
 
-const User = ({ user, delHandler, statusHandler }) => {
+const User = ({ user, delHandler, statusHandler, userPicker }) => {
   return (
     <>
       <div className="user-container">
@@ -28,7 +28,11 @@ const User = ({ user, delHandler, statusHandler }) => {
         </div>
 
         <div className="user-actions">
-          <Link style={{ textDecoration: 'none' }} to="/Settings">
+          <Link
+            style={{ textDecoration: 'none' }}
+            to="/Settings"
+            onClick={() => userPicker(user.id)}
+          >
             <img src="/images/settings.svg" className="user-actions-settings" />
           </Link>
 

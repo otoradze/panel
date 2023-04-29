@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import './Settings.css';
 
-const UserSettings = () => {
+const Settings = ({ user }) => {
   const [superAdmin, setSuperAdmin] = useState(false);
   const [group1, setGroup1] = useState(false);
   const [group2, setGroup2] = useState(false);
@@ -44,8 +44,8 @@ const UserSettings = () => {
               <img src="images/key.svg" className="settings-key" />
 
               <div className="settings-upload-text">upload a photo</div>
-              <div className="settings-user-info">Danniel Blichman</div>
-              <div className="settings-email">daniel.blichman@testtask.com</div>
+              <div className="settings-user-info">{user.name}</div>
+              <div className="settings-email">{user.email}</div>
               <button className="settings-invite-btn">Resend the invite</button>
             </div>
             {/* -------middle---------- */}
@@ -167,4 +167,4 @@ const UserSettings = () => {
   );
 };
 
-export default UserSettings;
+export default Settings;
