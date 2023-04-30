@@ -123,6 +123,7 @@
   height: 21px;
   display: flex;
   margin-bottom: 20px;
+  cursor: pointer;
 }
 
 .settings-active-toggle {
@@ -149,6 +150,14 @@
   flex-direction: column;
 }
 
+.settings-inputs-container-op {
+  width: 209px;
+  display: flex;
+  flex-direction: column;
+  pointer-events: none;
+  opacity: 0.5;
+}
+
 .settings-save-btn {
   width: 209px;
   height: 59px;
@@ -170,11 +179,20 @@
   border: none;
 }
 
-.settings-labels {
+.labels {
   height: 16px;
   font: normal normal 600 12px/16px Segoe UI;
   color: #33a3dc;
   margin-top: 25px;
+}
+
+.labels-op {
+  height: 16px;
+  font: normal normal 600 12px/16px Segoe UI;
+  color: #000000;
+  margin-top: 25px;
+  pointer-events: none;
+  opacity: 0.5;
 }
 
 .settings-divider {
@@ -298,4 +316,9 @@
   position: absolute;
   right: 600px;
   top: 6px;
+}
+
+.settings-opacity {
+  pointer-events: none;
+  opacity: 0.5;
 }

@@ -1,21 +1,20 @@
 import { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { data } from './shared/modal/data';
+import { data, permissionsData } from './shared/modal/data';
 import Table from './features/Table/Table';
 import Settings from './features/Settings/Settings';
 
-let getLocal = (inp) => {
-  let returnable = inp === 'users' ? data : '';
-  if (localStorage.getItem(inp)) {
-    return JSON.parse(localStorage.getItem(inp));
+let getUsers = () => {
+  if (localStorage.getItem('users')) {
+    return JSON.parse(localStorage.getItem('users'));
   } else {
-    return returnable;
+    return data;
   }
 };
 
 function App() {
-  const [users, setUsers] = useState(getLocal('users'));
-  const [user, setUser] = useState(getLocal('user'));
+  const [users, setUsers] = useState(getUsers());
+  const [user, setUser] = useState(null);
   const [saved, setSaved] = useState(false);
   const [btn, setBtn] = useState(0);
 
@@ -23,15 +22,7 @@ function App() {
     if (saved) {
       localStorage.setItem('users', JSON.stringify(users));
     }
-    localStorage.setItem('user', JSON.stringify(user));
-    localStorage.setItem('saved', JSON.stringify(saved));
   }, [users, user, saved]);
-
-  useEffect(() => {
-    if (user.id) {
-      userPicker(user.id);
-    }
-  }, [users]);
 
   const addHandler = () => {
     setUsers([
@@ -40,8 +31,9 @@ function App() {
         name: 'test',
         email: 'test@gmail.com',
         role: 'admin',
-        status: 'true',
+        status: true,
         id: Date.now(),
+        permissions: permissionsData,
       },
       ...users,
     ]);
@@ -58,6 +50,7 @@ function App() {
       return item;
     });
     setUsers(updated);
+    setUser(updated.filter((item) => item.id === id)[0]);
   };
 
   const delHandler = (id) => {
@@ -72,7 +65,6 @@ function App() {
   };
 
   const toggle = (item, id) => {
-    // console.log(item, id);
     const updated = users.map((el) => {
       if (el.id === id) {
         const newPermissions = el.permissions.map((permission) => {
@@ -89,6 +81,7 @@ function App() {
     });
 
     setUsers(updated);
+    setUser(updated.filter((item) => item.id === id)[0]);
   };
 
   return (
@@ -112,7 +105,14 @@ function App() {
 
           <Route
             path="/Settings"
-            element={<Settings user={user} toggle={toggle} />}
+            element={
+              <Settings
+                user={user}
+                toggle={toggle}
+                setSaved={setSaved}
+                statusHandler={statusHandler}
+              />
+            }
           />
         </Routes>
       </Router>

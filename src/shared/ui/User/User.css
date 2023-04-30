@@ -17,12 +17,34 @@
   margin-bottom: 15px;
 }
 
+.user-avatar-opacity {
+  border-radius: 50%;
+  border: 3px solid #666666;
+  margin-bottom: 15px;
+  opacity: 0.35;
+}
+
 .user-info {
   margin-left: 45px;
   width: 500px;
 }
 
+.user-info-opacity {
+  margin-left: 45px;
+  width: 500px;
+  opacity: 0.35;
+}
+
 .user-role {
+  position: absolute;
+  left: 740px;
+  margin-top: 5px;
+  font: normal normal 600 16px/21px Segoe UI;
+  color: #000000;
+}
+
+.user-role-opacity {
+  opacity: 0.35;
   position: absolute;
   left: 740px;
   margin-top: 5px;
@@ -52,10 +74,6 @@
 .user-email {
   font: normal normal 300 16px/21px Segoe UI;
   color: #000000;
-}
-
-.user-toggle {
-  cursor: pointer;
 }
 
 .user-actions {
@@ -92,4 +110,14 @@
   padding-block: 4px;
   padding-inline: 12px;
   margin-left: 80px;
+}
+
+.user-role-key-opacity {
+  width: 24px;
+  height: 24px;
+  border-radius: 30px;
+  padding-block: 4px;
+  padding-inline: 12px;
+  margin-left: 80px;
+  opacity: 0.35;
 }

@@ -1,6 +1,4 @@
-import { useState } from 'react';
 import User from '../../shared/ui/User/User';
-
 import './Table.css';
 
 const Table = ({
@@ -13,6 +11,7 @@ const Table = ({
   setBtn,
 }) => {
   const categories = ['user', 'role', 'status', 'actions'];
+  const slicedUsers = users.slice(5 * btn, 5 * btn + 5);
 
   return (
     <div className="table-container">
@@ -24,7 +23,7 @@ const Table = ({
           </div>
         </div>
       </div>
-
+      {/* <Popup /> */}
       <div className="table-main-wrapper">
         <div className="table-main-container">
           <div className="table-categories">
@@ -63,7 +62,7 @@ const Table = ({
             <div className="table-footer">
               <div className="table-count-container">
                 Records on Page
-                <div className="table-count-number">{users.length}</div>
+                <div className="table-count-number">{slicedUsers.length}</div>
                 <img
                   src="images/triangle.svg"
                   className="table-count-triangle"
@@ -73,7 +72,7 @@ const Table = ({
               <div className="table-pagination">
                 <div
                   className="table-pagination-previous"
-                  onClick={() => setBtn(btn - 1)}
+                  onClick={() => btn >= 1 && setBtn(btn - 1)}
                 >
                   Previous
                 </div>
@@ -82,16 +81,26 @@ const Table = ({
                     className="table-pagination-btn"
                     onClick={() => setBtn(btn)}
                   >
-                    {btn + 1}{' '}
+                    {btn + 1}
                   </button>
+
                   <button
                     className="table-pagination-btn2"
-                    onClick={() => setBtn(btn + 1)}
+                    onClick={() =>
+                      slicedUsers.length % 5 === 0 && setBtn(btn + 1)
+                    }
                   >
                     {btn + 2}
                   </button>
                 </div>
-                <div className="table-pagination-next">Next</div>
+                <div
+                  className="table-pagination-next"
+                  onClick={() =>
+                    slicedUsers.length % 5 === 0 && setBtn(btn + 1)
+                  }
+                >
+                  Next
+                </div>
               </div>
             </div>
           </div>

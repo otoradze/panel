@@ -1,3 +1,15 @@
+export let permissionsData = [
+  { name: 'permission11', toggle: true },
+  { name: 'permission12', toggle: true },
+  { name: 'permission13', toggle: false },
+  { name: 'permission14', toggle: true },
+  { name: 'permission15', toggle: true },
+  { name: 'superAdmin', toggle: false },
+  { name: 'group1', toggle: false },
+  { name: 'group2', toggle: false },
+  { name: 'group3', toggle: false },
+];
+
 export let data = [
   {
     name: 'Danniel Blichman',
@@ -5,17 +17,7 @@ export let data = [
     role: 'Admin',
     status: true,
     id: 1,
-    permissions: [
-      { name: 'permission11', toggle: true },
-      { name: 'permission12', toggle: true },
-      { name: 'permission13', toggle: false },
-      { name: 'permission14', toggle: true },
-      { name: 'permission15', toggle: true },
-      { name: 'superAdmin', toggle: false },
-      { name: 'group1', toggle: false },
-      { name: 'group2', toggle: false },
-      { name: 'group3', toggle: false },
-    ],
+    permissions: permissionsData,
   },
 
   {
@@ -24,13 +26,7 @@ export let data = [
     role: 'User',
     status: true,
     id: 2,
-    permissions: [
-      { name: 'permission11', toggle: true },
-      { name: 'permission12', toggle: true },
-      { name: 'permission13', toggle: false },
-      { name: 'permission14', toggle: true },
-      { name: 'permission15', toggle: true },
-    ],
+    permissions: permissionsData,
   },
   {
     name: 'Bethany Doe',
@@ -38,13 +34,7 @@ export let data = [
     role: 'User',
     status: true,
     id: 3,
-    permissions: [
-      { name: 'permission11', toggle: true },
-      { name: 'permission12', toggle: true },
-      { name: 'permission13', toggle: false },
-      { name: 'permission14', toggle: true },
-      { name: 'permission15', toggle: true },
-    ],
+    permissions: permissionsData,
   },
   {
     name: 'Samuel Jackson',
@@ -52,13 +42,7 @@ export let data = [
     role: 'User',
     status: true,
     id: 4,
-    permissions: [
-      { name: 'permission11', toggle: true },
-      { name: 'permission12', toggle: true },
-      { name: 'permission13', toggle: false },
-      { name: 'permission14', toggle: true },
-      { name: 'permission15', toggle: true },
-    ],
+    permissions: permissionsData,
   },
   {
     name: 'Persival Blinn',
@@ -66,26 +50,6 @@ export let data = [
     role: 'Admin',
     status: false,
     id: 5,
-    permissions: [
-      { name: 'permission11', toggle: true },
-      { name: 'permission12', toggle: true },
-      { name: 'permission13', toggle: false },
-      { name: 'permission14', toggle: true },
-      { name: 'permission15', toggle: true },
-    ],
-  },
-  {
-    name: 'Persival Blinn',
-    email: 'persival.blinn@testtask.com',
-    role: 'Admin',
-    status: false,
-    id: 6,
-    permissions: [
-      { name: 'permission11', toggle: true },
-      { name: 'permission12', toggle: true },
-      { name: 'permission13', toggle: false },
-      { name: 'permission14', toggle: true },
-      { name: 'permission15', toggle: true },
-    ],
+    permissions: permissionsData,
   },
 ];
