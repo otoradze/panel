@@ -17,13 +17,12 @@ function App() {
   const [users, setUsers] = useState(getLocal('users'));
   const [user, setUser] = useState(getLocal('user'));
   const [saved, setSaved] = useState(false);
-  const [btn, setBtn] = useState(1);
+  const [btn, setBtn] = useState(0);
 
   useEffect(() => {
     if (saved) {
       localStorage.setItem('users', JSON.stringify(users));
     }
-
     localStorage.setItem('user', JSON.stringify(user));
     localStorage.setItem('saved', JSON.stringify(saved));
   }, [users, user, saved]);
@@ -48,7 +47,7 @@ function App() {
     ]);
 
     setSaved(true);
-    setBtn(Math.floor(users.length / 5));
+    setBtn(0);
   };
 
   const statusHandler = (id) => {
@@ -106,6 +105,7 @@ function App() {
                 users={users}
                 userPicker={userPicker}
                 btn={btn}
+                setBtn={setBtn}
               />
             }
           />

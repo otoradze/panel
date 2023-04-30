@@ -10,6 +10,7 @@ const Table = ({
   users,
   userPicker,
   btn,
+  setBtn,
 }) => {
   const categories = ['user', 'role', 'status', 'actions'];
 
@@ -48,7 +49,7 @@ const Table = ({
           <div className="table-categories-divider" />
 
           <div className="table-users-container">
-            {users.map((user) => {
+            {users.slice(5 * btn, 5 * btn + 5).map((user) => {
               return (
                 <User
                   user={user}
@@ -72,20 +73,25 @@ const Table = ({
               <div className="table-pagination">
                 <div
                   className="table-pagination-previous"
-                  // onClick={() => setBtn(btn - 1)}
+                  onClick={() => setBtn(btn - 1)}
                 >
                   Previous
                 </div>
                 <div className="table-pagination-buttons">
-                  <button className="table-pagination-btn">{btn} </button>
-                  <button className="table-pagination-btn2">{btn + 1}</button>
+                  <button
+                    className="table-pagination-btn"
+                    onClick={() => setBtn(btn)}
+                  >
+                    {btn + 1}{' '}
+                  </button>
+                  <button
+                    className="table-pagination-btn2"
+                    onClick={() => setBtn(btn + 1)}
+                  >
+                    {btn + 2}
+                  </button>
                 </div>
-                <div
-                  className="table-pagination-next"
-                  // onClick={() => setBtn(btn + 1)}
-                >
-                  Next
-                </div>
+                <div className="table-pagination-next">Next</div>
               </div>
             </div>
           </div>
