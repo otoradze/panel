@@ -71,10 +71,8 @@ function App() {
           if (permission.name === item) {
             return { ...permission, toggle: !permission.toggle };
           }
-
           return permission;
         });
-
         return { ...el, permissions: newPermissions };
       }
       return el;

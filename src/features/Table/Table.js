@@ -1,3 +1,4 @@
+import PopModal from '../../shared/ui/PopModal/PopModal';
 import User from '../../shared/ui/User/User';
 import './Table.css';
 
@@ -23,7 +24,7 @@ const Table = ({
           </div>
         </div>
       </div>
-      {/* <Popup /> */}
+      <PopModal />
       <div className="table-main-wrapper">
         <div className="table-main-container">
           <div className="table-categories">
