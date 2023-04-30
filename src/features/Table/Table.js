@@ -1,5 +1,6 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import User from '../../shared/ui/User/User';
+
 import './Table.css';
 
 const Table = ({
@@ -8,9 +9,9 @@ const Table = ({
   statusHandler,
   users,
   userPicker,
+  btn,
 }) => {
   const categories = ['user', 'role', 'status', 'actions'];
-  const buttons = [1, 2, 3, 4];
 
   return (
     <div className="table-container">
@@ -26,9 +27,9 @@ const Table = ({
       <div className="table-main-wrapper">
         <div className="table-main-container">
           <div className="table-categories">
-            {categories.map((item) => {
+            {categories.map((item, index) => {
               return (
-                <div className={`table-${item}`}>
+                <div key={index} className={`table-${item}`}>
                   {item}
                   {item !== 'actions' && (
                     <img
@@ -54,6 +55,7 @@ const Table = ({
                   delHandler={delHandler}
                   statusHandler={statusHandler}
                   userPicker={userPicker}
+                  key={user.id}
                 />
               );
             })}
@@ -68,17 +70,22 @@ const Table = ({
               </div>
               {/* ----- buttons----- */}
               <div className="table-pagination">
-                <div className="table-pagination-previous">Previous</div>
-                <div className="table-pagination-buttons">
-                  {buttons.map((item) => {
-                    return (
-                      <button className="table-pagination-button">
-                        {item}
-                      </button>
-                    );
-                  })}
+                <div
+                  className="table-pagination-previous"
+                  // onClick={() => setBtn(btn - 1)}
+                >
+                  Previous
                 </div>
-                <div className="table-pagination-next">Next</div>
+                <div className="table-pagination-buttons">
+                  <button className="table-pagination-btn">{btn} </button>
+                  <button className="table-pagination-btn2">{btn + 1}</button>
+                </div>
+                <div
+                  className="table-pagination-next"
+                  // onClick={() => setBtn(btn + 1)}
+                >
+                  Next
+                </div>
               </div>
             </div>
           </div>

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './User.css';
 
-const User = ({ user, delHandler, statusHandler, userPicker }) => {
+const User = ({ user, delHandler, statusHandler, userPicker, id }) => {
   return (
     <>
       <div className="user-container">

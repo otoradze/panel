@@ -1,8 +1,7 @@
 import { useState } from 'react';
 import './Settings.css';
 
-const Settings = ({ user }) => {
-  const [superAdmin, setSuperAdmin] = useState(false);
+const Settings = ({ user, toggle }) => {
   const [group1, setGroup1] = useState(false);
   const [group2, setGroup2] = useState(false);
   const [group3, setGroup3] = useState(false);
@@ -14,15 +13,6 @@ const Settings = ({ user }) => {
     { name: 'permission14', toggle: true },
     { name: 'permission15', toggle: true },
   ]);
-
-  const toggle = (item, index) => {
-    const updated = [...permissions];
-    updated[index] = {
-      ...item,
-      toggle: !item.toggle,
-    };
-    setPermissions(updated);
-  };
 
   return (
     <div className="settings-container">
@@ -86,8 +76,10 @@ const Settings = ({ user }) => {
                 <div className="settings-superadmin-text"> Super Admin</div>
                 <img
                   className="settings-permission-toggle"
-                  src={`images/${superAdmin ? 'toggle.svg' : 'toggle-red.svg'}`}
-                  onClick={() => setSuperAdmin(!superAdmin)}
+                  src={`images/${
+                    user.permissions[5].toggle ? 'toggle.svg' : 'toggle-red.svg'
+                  }`}
+                  onClick={() => toggle(user.permissions[5].name, user.id)}
                 />
               </div>
               <div className="settings-permission-divider"></div>
@@ -100,34 +92,37 @@ const Settings = ({ user }) => {
                 <div className="settings-group-text">Permission group 1</div>
                 <img
                   className="settings-permission-toggle"
-                  src={`images/${group1 ? 'toggle.svg' : 'toggle-red.svg'}`}
-                  onClick={() => setGroup1(!group1)}
+                  src={`images/${
+                    user.permissions[6].toggle ? 'toggle.svg' : 'toggle-red.svg'
+                  }`}
+                  onClick={() => toggle(user.permissions[6].name, user.id)}
                 />
               </div>
               {/* ----group1---- */}
               <div className="settings-group">
-                {permissions.map((item, index) => {
-                  return (
-                    <div className="settings-group-each">
-                      <div className="settings-grou-each-left">
-                        <div
-                          className={`settings-${
-                            item.toggle ? 'checkbox' : 'checkbox-red'
-                          }`}
-                        ></div>
-                        <div className="settings-name">{item.name}</div>
-                      </div>
+                {user.permissions &&
+                  user.permissions.slice(0, 5).map((item, index) => {
+                    return (
+                      <div key={index} className="settings-group-each">
+                        <div className="settings-grou-each-left">
+                          <div
+                            className={`settings-${
+                              item.toggle ? 'checkbox' : 'checkbox-red'
+                            }`}
+                          ></div>
+                          <div className="settings-name">{item.name}</div>
+                        </div>
 
-                      <img
-                        className="settings-permission-toggle"
-                        src={`images/${
-                          item.toggle ? 'toggle.svg' : 'toggle-red.svg'
-                        }`}
-                        onClick={() => toggle(item, index)}
-                      />
-                    </div>
-                  );
-                })}
+                        <img
+                          className="settings-permission-toggle"
+                          src={`images/${
+                            item.toggle ? 'toggle.svg' : 'toggle-red.svg'
+                          }`}
+                          onClick={() => toggle(item.name, user.id)}
+                        />
+                      </div>
+                    );
+                  })}
               </div>
               {/* ----group---- */}
               <div className="settings-permission-divider"></div>
@@ -139,8 +134,10 @@ const Settings = ({ user }) => {
                 <div className="settings-group-text">Permission group 2</div>
                 <img
                   className="settings-permission-toggle"
-                  src={`images/${group2 ? 'toggle.svg' : 'toggle-red.svg'}`}
-                  onClick={() => setGroup2(!group2)}
+                  src={`images/${
+                    user.permissions[7].toggle ? 'toggle.svg' : 'toggle-red.svg'
+                  }`}
+                  onClick={() => toggle(user.permissions[7].name, user.id)}
                 />
               </div>
               <div className="settings-permission-divider"></div>
@@ -152,8 +149,10 @@ const Settings = ({ user }) => {
                 <div className="settings-group-text">Permission group 3</div>
                 <img
                   className="settings-permission-toggle"
-                  src={`images/${group3 ? 'toggle.svg' : 'toggle-red.svg'}`}
-                  onClick={() => setGroup3(!group3)}
+                  src={`images/${
+                    user.permissions[8].toggle ? 'toggle.svg' : 'toggle-red.svg'
+                  }`}
+                  onClick={() => toggle(user.permissions[8].name, user.id)}
                 />
               </div>
               <div className="settings-permission-divider"></div>

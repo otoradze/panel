@@ -145,7 +145,7 @@
 }
 
 .table-pagination {
-  margin-right: 106px;
+  margin-right: 60px;
   width: 250px;
   display: flex;
 }
@@ -174,9 +174,20 @@
   display: flex;
 }
 
-.table-pagination-button {
+.table-pagination-btn {
   background: #c6c6c6 0% 0% no-repeat padding-box;
   box-shadow: 0px 3px 6px #00000029;
+  border-radius: 4px;
+  height: 32px;
+  width: 32px;
+  border: none;
+  cursor: pointer;
+  margin-left: 10px;
+  font-weight: bold;
+}
+
+.table-pagination-btn2 {
+  background: none;
   border-radius: 4px;
   height: 32px;
   width: 32px;

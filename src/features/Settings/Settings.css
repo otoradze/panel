@@ -92,6 +92,8 @@
   font: normal normal 300 16px/21px Segoe UI;
   text-align: center;
   margin-top: 12px;
+
+  height: 20px;
 }
 
 .settings-invite-btn {
