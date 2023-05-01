@@ -1,34 +1,36 @@
 import React, { useState } from 'react';
 import './PopModal.css';
 
-export default function PopModal() {
-  const [modal, setModal] = useState(false);
-
-  const toggleModal = () => {
-    setModal(!modal);
-  };
-
+export default function PopModal({ toggleModal }) {
   return (
     <>
-      <button onClick={toggleModal} className="btn-modal">
-        Open
-      </button>
+      <div className="modal">
+        <div onClick={toggleModal} className="overlay"></div>
+        <div className="modal-content">
+          <button className="close-modal" onClick={toggleModal}>
+            X
+          </button>
+          <div className="modal-header-text">Invite New User</div>
 
-      {modal && (
-        <div className="modal">
-          <div onClick={toggleModal} className="overlay"></div>
-          <div className="modal-content">
-            <h2>Hello Modal</h2>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident
-              perferendis suscipit officia recusandae, eveniet quaerat assumenda
-            </p>
-            <button className="close-modal" onClick={toggleModal}>
-              CLOSE
-            </button>
+          <div className="modal-name-container">
+            <img className="modal-name-img" src="images/name.svg" />
+            <input placeholder="* First Name" className="modal-name" />
+            <input placeholder="* Last Name" className="modal-lastName" />
           </div>
+
+          <div className="modal-email-container">
+            <img className="modal-name-img" src="images/email.svg" />
+            <input className="modal-email" />
+          </div>
+
+          <div className="modal-role">
+            <img />
+            <input />
+          </div>
+
+          <button className="modal-invitation">Send Invitation</button>
         </div>
-      )}
+      </div>
     </>
   );
 }

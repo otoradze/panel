@@ -1,5 +1,5 @@
-import PopModal from '../../shared/ui/PopModal/PopModal';
 import User from '../../shared/ui/User/User';
+import PopModal from '../../shared/ui/PopModal/PopModal';
 import './Table.css';
 
 const Table = ({
@@ -10,6 +10,8 @@ const Table = ({
   userPicker,
   btn,
   setBtn,
+  toggleModal,
+  modal,
 }) => {
   const categories = ['user', 'role', 'status', 'actions'];
   const slicedUsers = users.slice(5 * btn, 5 * btn + 5);
@@ -24,7 +26,9 @@ const Table = ({
           </div>
         </div>
       </div>
-      <PopModal />
+
+      {modal && <PopModal toggleModal={toggleModal} />}
+
       <div className="table-main-wrapper">
         <div className="table-main-container">
           <div className="table-categories">

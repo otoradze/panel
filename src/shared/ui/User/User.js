@@ -13,7 +13,7 @@ const User = ({ user, delHandler, userPicker, key }) => {
         />
 
         <div className={user.status ? 'user-info' : 'user-info-opacity'}>
-          <div className="user-name">{user.name}</div>
+          <div className="user-name">{user.name + '  ' + user.lastname}</div>
           <div className="user-email">{user.email}</div>
         </div>
         {user.role === 'Admin' && (

@@ -177,6 +177,8 @@
   margin-top: 8px;
   background: none;
   border: none;
+  width: 200px;
+  outline: none;
 }
 
 .labels {
@@ -321,4 +323,42 @@
 .settings-opacity {
   pointer-events: none;
   opacity: 0.5;
+}
+
+.dropdown {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 4px;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 120px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  margin-left: 90px;
+  z-index: 1;
+}
+
+.dropdown-content div {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  cursor: pointer;
+}
+
+.dropdown-content div:hover {
+  background-color: #f1f1f1;
+  cursor: pointer;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.settings-role-name {
+  width: 50px;
 }

@@ -1,11 +1,17 @@
 import { useNavigate } from 'react-router-dom';
 import './Settings.css';
+import { useState } from 'react';
 
-const Settings = ({ user, toggle, setSaved, statusHandler }) => {
+const Settings = ({ user, toggle, setSaved, statusHandler, detailsUpdate }) => {
   const navigate = useNavigate();
+
+  const [name, setName] = useState(user?.name);
+  const [lastName, setLastName] = useState(user?.lastname);
+  const [role, setRole] = useState(user?.role);
 
   const saveHandler = () => {
     setSaved(true);
+    detailsUpdate(user?.id, name, lastName, role);
     navigate('/');
   };
 
@@ -34,7 +40,9 @@ const Settings = ({ user, toggle, setSaved, statusHandler }) => {
 
               <div className={!user.status && 'settings-opacity'}>
                 <div className="settings-upload-text">upload a photo</div>
-                <div className="settings-user-info">{user.name}</div>
+                <div className="settings-user-info">
+                  {user.name + ' ' + user.lastname}
+                </div>
                 <div className="settings-email">{user.email}</div>
               </div>
 
@@ -75,17 +83,38 @@ const Settings = ({ user, toggle, setSaved, statusHandler }) => {
                 <label className={user.status ? 'labels' : 'labels-op'}>
                   *First Name
                 </label>
-                <input value="Danniel" className="settings-input" />
+                <input
+                  value={name}
+                  className="settings-input"
+                  onChange={(e) => {
+                    setName(e.target.value);
+                  }}
+                />
                 <div className="settings-divider"></div>
                 <label className={user.status ? 'labels' : 'labels-op'}>
                   *Last Name
                 </label>
-                <input value="Blichman" className="settings-input" />
+                <input
+                  value={lastName}
+                  className="settings-input"
+                  onChange={(e) => {
+                    setLastName(e.target.value);
+                  }}
+                />
                 <div className="settings-divider"></div>
                 <label className={user.status ? 'labels' : 'labels-op'}>
                   *Role
                 </label>
-                <input value="Admin" className="settings-input" />
+
+                <div class="dropdown">
+                  <div className="settings-role-name">{role}</div>
+                  <img src="images/triangle.svg"></img>
+                  <div class="dropdown-content">
+                    <div onClick={() => setRole('User')}>User</div>
+                    <div onClick={() => setRole('Admin')}>Admin</div>
+                  </div>
+                </div>
+
                 <div className="settings-divider"></div>
                 {user.status && (
                   <button className="settings-save-btn" onClick={saveHandler}>

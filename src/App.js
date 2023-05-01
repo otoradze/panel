@@ -16,7 +16,13 @@ function App() {
   const [users, setUsers] = useState(getUsers());
   const [user, setUser] = useState(null);
   const [saved, setSaved] = useState(false);
+
   const [btn, setBtn] = useState(0);
+  const [modal, setModal] = useState(false);
+
+  const toggleModal = () => {
+    setModal(!modal);
+  };
 
   useEffect(() => {
     if (saved) {
@@ -25,21 +31,22 @@ function App() {
   }, [users, user, saved]);
 
   const addHandler = () => {
-    setUsers([
-      {
-        avatar: true,
-        name: 'test',
-        email: 'test@gmail.com',
-        role: 'admin',
-        status: true,
-        id: Date.now(),
-        permissions: permissionsData,
-      },
-      ...users,
-    ]);
+    toggleModal(!modal);
+    // setUsers([
+    //   {
+    //     avatar: true,
+    //     name: 'test',
+    //     email: 'test@gmail.com',
+    //     role: 'admin',
+    //     status: true,
+    //     id: Date.now(),
+    //     permissions: permissionsData,
+    //   },
+    //   ...users,
+    // ]);
 
-    setSaved(true);
-    setBtn(0);
+    // setSaved(true);
+    // setBtn(0);
   };
 
   const statusHandler = (id) => {
@@ -82,6 +89,16 @@ function App() {
     setUser(updated.filter((item) => item.id === id)[0]);
   };
 
+  const detailsUpdate = (id, name, lastName, role) => {
+    const updated = users.map((el) => {
+      if (el.id === id) {
+        return { ...el, name: name, lastname: lastName, role: role };
+      }
+      return el;
+    });
+    setUsers(updated);
+  };
+
   return (
     <div className="App">
       <Router>
@@ -97,6 +114,8 @@ function App() {
                 userPicker={userPicker}
                 btn={btn}
                 setBtn={setBtn}
+                toggleModal={toggleModal}
+                modal={modal}
               />
             }
           />
@@ -109,6 +128,7 @@ function App() {
                 toggle={toggle}
                 setSaved={setSaved}
                 statusHandler={statusHandler}
+                detailsUpdate={detailsUpdate}
               />
             }
           />

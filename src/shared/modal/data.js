@@ -12,7 +12,8 @@ export let permissionsData = [
 
 export let data = [
   {
-    name: 'Danniel Blichman',
+    name: 'Danniel',
+    lastname: 'Blichman',
     email: 'danniel.blichman@testtask.com',
     role: 'Admin',
     status: true,
@@ -21,7 +22,8 @@ export let data = [
   },
 
   {
-    name: 'Margarette Jones',
+    name: 'Margarette',
+    lastname: 'Jones',
     email: 'margarette.jones@testtask.com',
     role: 'User',
     status: true,
@@ -29,7 +31,8 @@ export let data = [
     permissions: permissionsData,
   },
   {
-    name: 'Bethany Doe',
+    name: 'Bethany',
+    lastname: 'Doe',
     email: 'bethany.doe@testtask.com',
     role: 'User',
     status: true,
@@ -37,7 +40,8 @@ export let data = [
     permissions: permissionsData,
   },
   {
-    name: 'Samuel Jackson',
+    name: 'Samuel',
+    lastname: 'Jackson',
     email: 'samuel.jackson@testtask.com',
     role: 'User',
     status: true,
@@ -45,7 +49,8 @@ export let data = [
     permissions: permissionsData,
   },
   {
-    name: 'Persival Blinn',
+    name: 'Persival',
+    lastname: 'Blinn',
     email: 'persival.blinn@testtask.com',
     role: 'Admin',
     status: false,

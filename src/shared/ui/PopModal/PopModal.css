@@ -18,7 +18,9 @@ body.active-modal {
   left: 0;
   right: 0;
   bottom: 0;
+
   z-index: 1;
+  border: 2px solid red;
 }
 
 .modal-content {
@@ -28,16 +30,76 @@ body.active-modal {
   transform: translate(-50%, -50%);
   line-height: 1.4;
   background: #ffffff;
-  padding: 14px 28px;
   border-radius: 3px;
-  max-width: 600px;
-  min-width: 300px;
+  width: 610px;
+  height: 570px;
   z-index: 2;
 }
 
 .close-modal {
   position: absolute;
-  top: 10px;
-  right: 10px;
-  padding: 5px 7px;
+  top: 24px;
+  right: 20px;
+  background: none;
+  border: none;
+  font-size: 20px;
+  font: normal normal 600 Segoe UI;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.modal-header-text {
+  font: normal normal 600 36px/48px Segoe UI;
+  margin-top: 72px;
+  margin-left: 123px;
+}
+
+.modal-name-container {
+  margin-top: 80px;
+  margin-left: 72;
+  margin-left: 82px;
+  width: 380px;
+  display: flex;
+}
+
+.modal-name {
+  border-top: none;
+  border-inline: none;
+  outline: none;
+  margin-left: 20px;
+  border-bottom: 2px solid #c6c6c6;
+  font: normal normal normal 16px/21px Segoe UI;
+}
+
+.modal-name::placeholder {
+  color: #c6c6c6;
+}
+
+.modal-lastName {
+  border-top: none;
+  border-inline: none;
+  outline: none;
+  margin-left: 5px;
+  border-bottom: 2px solid #c6c6c6;
+  font: normal normal normal 16px/21px Segoe UI;
+}
+
+.modal-lastName::placeholder {
+  color: #c6c6c6;
+}
+
+.modal-name-img {
+  width: 24px;
+}
+
+.modal-email-container {
+  margin-top: 80px;
+  margin-left: 72;
+  margin-left: 82px;
+  width: 380px;
+  display: flex;
+}
+
+.modal-email {
+  border: 2px solid red;
 }
