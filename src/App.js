@@ -15,7 +15,6 @@ let getUsers = () => {
 function App() {
   const [users, setUsers] = useState(getUsers());
   const [user, setUser] = useState(null);
-  const [saved, setSaved] = useState(false);
 
   const [btn, setBtn] = useState(0);
   const [modal, setModal] = useState(false);
@@ -25,28 +24,25 @@ function App() {
   };
 
   useEffect(() => {
-    if (saved) {
-      localStorage.setItem('users', JSON.stringify(users));
-    }
-  }, [users, user, saved]);
+    localStorage.setItem('users', JSON.stringify(users));
+  }, [users]);
 
   const addHandler = () => {
     toggleModal(!modal);
-    // setUsers([
-    //   {
-    //     avatar: true,
-    //     name: 'test',
-    //     email: 'test@gmail.com',
-    //     role: 'admin',
-    //     status: true,
-    //     id: Date.now(),
-    //     permissions: permissionsData,
-    //   },
-    //   ...users,
-    // ]);
+    setUsers([
+      {
+        name: 'name',
+        lastname: 'lastname',
+        email: 'test@gmail.com',
+        role: 'admin',
+        status: true,
+        id: Date.now(),
+        permissions: permissionsData,
+      },
+      ...users,
+    ]);
 
-    // setSaved(true);
-    // setBtn(0);
+    setBtn(0);
   };
 
   const statusHandler = (id) => {
@@ -63,7 +59,6 @@ function App() {
   const delHandler = (id) => {
     const filtered = users.filter((item) => item.id !== id);
     setUsers(filtered);
-    setSaved(true);
   };
 
   const userPicker = (id) => {
@@ -86,7 +81,7 @@ function App() {
     });
 
     setUsers(updated);
-    setUser(updated.filter((item) => item.id === id)[0]);
+    setUser(updated.filter((el) => el.id === id)[0]);
   };
 
   const detailsUpdate = (id, name, lastName, role) => {
@@ -126,7 +121,6 @@ function App() {
               <Settings
                 user={user}
                 toggle={toggle}
-                setSaved={setSaved}
                 statusHandler={statusHandler}
                 detailsUpdate={detailsUpdate}
               />

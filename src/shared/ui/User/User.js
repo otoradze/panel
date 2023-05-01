@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './User.css';
 
-const User = ({ user, delHandler, userPicker, key }) => {
+const User = ({ user, delHandler, userPicker, key, statusHandler }) => {
   return (
     <>
       <div className="user-container">
@@ -32,22 +32,31 @@ const User = ({ user, delHandler, userPicker, key }) => {
           <img
             src={`/images/${user.status ? 'toggle.svg' : 'toggle-red.svg'} `}
             alt="toggle"
+            onClick={() => {
+              statusHandler(user.id, true);
+            }}
+            className="user-toggleBtn"
           />
         </div>
 
         <div className="user-actions">
-          <Link
-            style={{ textDecoration: 'none' }}
-            to="/Settings"
-            onClick={() => userPicker(user.id)}
-          >
-            <img src="/images/settings.svg" className="user-actions-settings" />
-          </Link>
+          {user.status && (
+            <Link
+              style={{ textDecoration: 'none' }}
+              to="/Settings"
+              onClick={() => userPicker(user.id)}
+            >
+              <img
+                src="/images/settings.svg"
+                className="user-actions-settings"
+              />
+            </Link>
+          )}
 
           <img
             src="/images/del.svg"
             onClick={() => delHandler(user.id)}
-            className="user-actions-del"
+            className={'user-actions-del'}
           />
         </div>
       </div>

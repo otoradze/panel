@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import User from '../../shared/ui/User/User';
 import PopModal from '../../shared/ui/PopModal/PopModal';
 import './Table.css';
@@ -16,11 +17,34 @@ const Table = ({
   const categories = ['user', 'role', 'status', 'actions'];
   const slicedUsers = users.slice(5 * btn, 5 * btn + 5);
 
+  const [filteredId, setFilteredId] = useState('');
+  console.log(filteredId);
+  const searchHandler = (e) => {
+    const updated = users.filter(
+      (el) =>
+        el.name.toLowerCase().includes(e.target.value.toLowerCase()) ||
+        el.lastname.toLowerCase().includes(e.target.value.toLowerCase())
+    );
+    if (e.target.value !== '') {
+      setFilteredId(updated[0]?.id);
+    } else {
+      setFilteredId('');
+    }
+  };
+
   return (
     <div className="table-container">
       <div className="table-header-wrapper">
         <div className="table-header-container">
           <div className="table-header-text">Project Access</div>
+          <div className="table-header-search">
+            <input
+              className="table-header-inp"
+              placeholder="Type to filter the table"
+              onChange={searchHandler}
+            />
+            <img src="images/search.svg" />
+          </div>
           <div onClick={addHandler} className="table-add">
             +
           </div>
@@ -53,17 +77,20 @@ const Table = ({
           <div className="table-categories-divider" />
 
           <div className="table-users-container">
-            {users.slice(5 * btn, 5 * btn + 5).map((user) => {
-              return (
-                <User
-                  user={user}
-                  delHandler={delHandler}
-                  statusHandler={statusHandler}
-                  userPicker={userPicker}
-                  key={user.id}
-                />
-              );
-            })}
+            {users
+              .filter((el) => (filteredId ? filteredId === el.id : el))
+              .slice(5 * btn, 5 * btn + 5)
+              .map((user) => {
+                return (
+                  <User
+                    user={user}
+                    delHandler={delHandler}
+                    statusHandler={statusHandler}
+                    userPicker={userPicker}
+                    key={user.id}
+                  />
+                );
+              })}
             <div className="table-footer">
               <div className="table-count-container">
                 Records on Page

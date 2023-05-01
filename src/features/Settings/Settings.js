@@ -2,7 +2,7 @@ import { useNavigate } from 'react-router-dom';
 import './Settings.css';
 import { useState } from 'react';
 
-const Settings = ({ user, toggle, setSaved, statusHandler, detailsUpdate }) => {
+const Settings = ({ user, toggle, statusHandler, detailsUpdate }) => {
   const navigate = useNavigate();
 
   const [name, setName] = useState(user?.name);
@@ -10,7 +10,6 @@ const Settings = ({ user, toggle, setSaved, statusHandler, detailsUpdate }) => {
   const [role, setRole] = useState(user?.role);
 
   const saveHandler = () => {
-    setSaved(true);
     detailsUpdate(user?.id, name, lastName, role);
     navigate('/');
   };

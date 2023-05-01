@@ -16,6 +16,25 @@
   min-width: 1920px;
 }
 
+.table-header-inp {
+  border: none;
+  font-size: 20px;
+  font-style: italic;
+  outline: none;
+  width: 400px;
+}
+
+.table-header-search {
+  border-bottom: 2px solid #707070;
+  width: 356px;
+  height: 30px;
+  position: absolute;
+  top: 115px;
+  margin-left: 1450px;
+  display: flex;
+  justify-content: space-between;
+}
+
 .table-header-text {
   margin-top: 96px;
   margin-left: 276px;
@@ -45,7 +64,7 @@
   margin-top: 32px;
   margin-left: 260px;
   width: 1550px;
-  border: 2px solid #d8d8d8;
+  border-bottom: 2px solid #d8d8d8;
 }
 
 /* ----------------- */
