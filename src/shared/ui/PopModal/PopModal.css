@@ -10,29 +10,31 @@ body.active-modal {
   position: absolute;
 }
 
+.modal {
+  height: 100%;
+}
+
 .modal,
 .overlay {
   background: rgba(9, 9, 9, 0.226);
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-
   z-index: 1;
-  border: 2px solid red;
 }
 
 .modal-content {
-  position: absolute;
-  top: 500px;
+  position: fixed;
+  top: 600px;
   left: 50%;
   transform: translate(-50%, -50%);
   line-height: 1.4;
   background: #ffffff;
   border-radius: 3px;
   width: 610px;
-  height: 570px;
+  height: 630px;
   z-index: 2;
 }
 
@@ -58,17 +60,19 @@ body.active-modal {
   margin-top: 80px;
   margin-left: 72;
   margin-left: 82px;
-  width: 380px;
+  width: 370px;
   display: flex;
 }
 
 .modal-name {
+  width: 180px;
   border-top: none;
   border-inline: none;
   outline: none;
   margin-left: 20px;
   border-bottom: 2px solid #c6c6c6;
   font: normal normal normal 16px/21px Segoe UI;
+  padding-bottom: 4px;
 }
 
 .modal-name::placeholder {
@@ -76,12 +80,14 @@ body.active-modal {
 }
 
 .modal-lastName {
+  width: 180px;
   border-top: none;
   border-inline: none;
   outline: none;
-  margin-left: 5px;
+  margin-left: 14px;
   border-bottom: 2px solid #c6c6c6;
   font: normal normal normal 16px/21px Segoe UI;
+  padding-bottom: 4px;
 }
 
 .modal-lastName::placeholder {
@@ -90,16 +96,161 @@ body.active-modal {
 
 .modal-name-img {
   width: 24px;
+  height: 24px;
 }
 
 .modal-email-container {
   margin-top: 80px;
-  margin-left: 72;
   margin-left: 82px;
-  width: 380px;
+  width: 428px;
   display: flex;
 }
 
 .modal-email {
-  border: 2px solid red;
+  outline: none;
+  border-top: none;
+  border-inline: none;
+  border-bottom: 2px solid #c6c6c6;
+  margin-left: 20px;
+  width: 400px;
+  padding-bottom: 4px;
+}
+
+.modal-email::placeholder {
+  color: #c6c6c6;
+}
+
+.modal-role-container {
+  margin-left: 84px;
+  width: 416px;
+}
+
+.modal-role::placeholder {
+  color: #c6c6c6;
+}
+
+.modal-invitation {
+  cursor: pointer;
+  width: 142px;
+  height: 40px;
+  background: #c6c6c6;
+  border-radius: 20px;
+  border: none;
+  color: #979797;
+  font: normal normal 600 16px/21px Segoe UI;
+  margin-left: 120px;
+  outline: none;
+}
+
+.modal-footer {
+  display: flex;
+  margin-top: 40px;
+}
+
+.modal-footer-text {
+  width: 140px;
+  margin-left: 120px;
+  display: flex;
+  align-items: center;
+  color: #f89797;
+  font: italic normal 300 16px/21px Segoe UI;
+}
+
+.modal-footer-text-ready {
+  width: 140px;
+  margin-left: 120px;
+  display: flex;
+  align-items: center;
+  color: #44d36a;
+  font: italic normal 300 16px/21px Segoe UI;
+}
+
+.modal-invitation-ready {
+  cursor: pointer;
+  width: 142px;
+  height: 40px;
+  background: #33a3dc;
+  border-radius: 20px;
+  border: none;
+  color: #ffffff;
+  font: normal normal 600 16px/21px Segoe UI;
+  margin-left: 120px;
+  outline: none;
+}
+
+.modal-label-name {
+  margin-left: 25px;
+  font: normal normal 600 12px/16px Segoe UI;
+  color: #33a3dc;
+  position: absolute;
+  left: 100px;
+  top: 170px;
+}
+
+.modal-label-lastname {
+  margin-left: 25px;
+  font: normal normal 600 12px/16px Segoe UI;
+  color: #33a3dc;
+  position: absolute;
+  left: 310px;
+  top: 170px;
+}
+
+.modal-label-email {
+  margin-left: 25px;
+  font: normal normal 600 12px/16px Segoe UI;
+  color: #33a3dc;
+  position: absolute;
+  left: 100px;
+  top: 280px;
+}
+
+.modal-dropdown {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 4px;
+  width: 190px;
+  margin-top: 90px;
+}
+
+.modal-dropdown-content div {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  cursor: pointer;
+}
+
+.modal-dropdown-content div:hover {
+  background-color: #f1f1f1;
+  cursor: pointer;
+}
+
+.modal-dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.modal-role-name {
+  width: 112px;
+  border-top: none;
+  border-inline: none;
+  border-bottom: 2px solid #c6c6c6;
+  font: normal normal normal 16px/21px Segoe UI;
+  outline: none;
+  /* width: 150px; */
+}
+
+.modal-role-name::placeholder {
+  font: normal normal normal 16px/21px Segoe UI;
+  color: #c6c6c6;
+}
+
+.modal-label-role {
+  font: normal normal 600 12px/16px Segoe UI;
+  color: #33a3dc;
+  position: absolute;
+  bottom: 32px;
+  left: 45px;
+  z-index: 9999;
 }

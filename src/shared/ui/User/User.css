@@ -61,7 +61,6 @@
 .user-divider {
   border-bottom: 1px solid #d8d8d8;
   width: 1550px;
-  /* margin-left: 167px; */
   margin-left: 170px;
   position: absolute;
 }
@@ -99,13 +98,6 @@
   left: 52px;
   cursor: pointer;
 }
-
-/* .user-actions-del:hover {
-  width: 16px;
-  margin-left: 22px;
-  cursor: pointer;
-  fill: red;
-} */
 
 .user-role-key {
   width: 24px;

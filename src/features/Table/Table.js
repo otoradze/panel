@@ -16,20 +16,16 @@ const Table = ({
 }) => {
   const categories = ['user', 'role', 'status', 'actions'];
   const slicedUsers = users.slice(5 * btn, 5 * btn + 5);
-
   const [filteredId, setFilteredId] = useState('');
-  console.log(filteredId);
+
   const searchHandler = (e) => {
     const updated = users.filter(
       (el) =>
         el.name.toLowerCase().includes(e.target.value.toLowerCase()) ||
         el.lastname.toLowerCase().includes(e.target.value.toLowerCase())
     );
-    if (e.target.value !== '') {
-      setFilteredId(updated[0]?.id);
-    } else {
-      setFilteredId('');
-    }
+    const matchingIds = updated.map((el) => el.id);
+    setFilteredId(matchingIds);
   };
 
   return (
@@ -45,14 +41,18 @@ const Table = ({
             />
             <img src="images/search.svg" />
           </div>
-          <div onClick={addHandler} className="table-add">
+          <div onClick={toggleModal} className="table-add">
             +
           </div>
         </div>
       </div>
-
-      {modal && <PopModal toggleModal={toggleModal} />}
-
+      {modal && (
+        <PopModal
+          toggleModal={toggleModal}
+          addHandler={addHandler}
+          users={users}
+        />
+      )}
       <div className="table-main-wrapper">
         <div className="table-main-container">
           <div className="table-categories">
@@ -73,21 +73,21 @@ const Table = ({
               );
             })}
           </div>
-
           <div className="table-categories-divider" />
-
           <div className="table-users-container">
             {users
-              .filter((el) => (filteredId ? filteredId === el.id : el))
+              .filter((el) =>
+                filteredId.length === 0 ? true : filteredId.includes(el.id)
+              )
               .slice(5 * btn, 5 * btn + 5)
               .map((user) => {
                 return (
                   <User
+                    key={user.id}
                     user={user}
                     delHandler={delHandler}
                     statusHandler={statusHandler}
                     userPicker={userPicker}
-                    key={user.id}
                   />
                 );
               })}
@@ -100,7 +100,6 @@ const Table = ({
                   className="table-count-triangle"
                 />
               </div>
-              {/* ----- buttons----- */}
               <div className="table-pagination">
                 <div
                   className="table-pagination-previous"
@@ -115,7 +114,6 @@ const Table = ({
                   >
                     {btn + 1}
                   </button>
-
                   <button
                     className="table-pagination-btn2"
                     onClick={() =>

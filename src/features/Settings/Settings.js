@@ -4,7 +4,6 @@ import { useState } from 'react';
 
 const Settings = ({ user, toggle, statusHandler, detailsUpdate }) => {
   const navigate = useNavigate();
-
   const [name, setName] = useState(user?.name);
   const [lastName, setLastName] = useState(user?.lastname);
   const [role, setRole] = useState(user?.role);
@@ -28,15 +27,12 @@ const Settings = ({ user, toggle, statusHandler, detailsUpdate }) => {
           </div>
         </div>
       </div>
-
       <div className="settings-main-container">
         <div className="settings-categories-container">
           <div className="settings-categories">
-            {/* ------left------------ */}
             <div className="settings-left">
               <img src="images/avatar.svg" className="settings-avatar" />
               <img src="images/key.svg" className="settings-key" />
-
               <div className={!user.status && 'settings-opacity'}>
                 <div className="settings-upload-text">upload a photo</div>
                 <div className="settings-user-info">
@@ -44,14 +40,12 @@ const Settings = ({ user, toggle, statusHandler, detailsUpdate }) => {
                 </div>
                 <div className="settings-email">{user.email}</div>
               </div>
-
               {user.status && (
                 <button className="settings-invite-btn">
                   Resend the invite
                 </button>
               )}
             </div>
-            {/* -------middle---------- */}
             <div className="settings-middle">
               <div className="settings-details-text">Details</div>
               <div className="settings-active-container">
@@ -63,7 +57,6 @@ const Settings = ({ user, toggle, statusHandler, detailsUpdate }) => {
                   alt="toggle"
                   onClick={() => statusHandler(user.id)}
                 />
-
                 <div className="settings-active-text">
                   The user is
                   <span className="settings-active-bold">
@@ -71,7 +64,6 @@ const Settings = ({ user, toggle, statusHandler, detailsUpdate }) => {
                   </span>
                 </div>
               </div>
-
               <div
                 className={
                   user.status
@@ -104,16 +96,14 @@ const Settings = ({ user, toggle, statusHandler, detailsUpdate }) => {
                 <label className={user.status ? 'labels' : 'labels-op'}>
                   *Role
                 </label>
-
-                <div class="dropdown">
+                <div className="dropdown">
                   <div className="settings-role-name">{role}</div>
                   <img src="images/triangle.svg"></img>
-                  <div class="dropdown-content">
+                  <div className="dropdown-content">
                     <div onClick={() => setRole('User')}>User</div>
                     <div onClick={() => setRole('Admin')}>Admin</div>
                   </div>
                 </div>
-
                 <div className="settings-divider"></div>
                 {user.status && (
                   <button className="settings-save-btn" onClick={saveHandler}>
@@ -122,8 +112,6 @@ const Settings = ({ user, toggle, statusHandler, detailsUpdate }) => {
                 )}
               </div>
             </div>
-
-            {/* ------right----------- */}
             <div className={!user.status && 'settings-opacity'}>
               <div className="settings-right">
                 <div className="settings-permission-container">
@@ -143,7 +131,6 @@ const Settings = ({ user, toggle, statusHandler, detailsUpdate }) => {
                   />
                 </div>
                 <div className="settings-permission-divider"></div>
-                {/* -----groups---- */}
                 <div className="settings-group-container">
                   <img
                     src="images/cut-triangle.svg"
@@ -160,7 +147,6 @@ const Settings = ({ user, toggle, statusHandler, detailsUpdate }) => {
                     onClick={() => toggle(user.permissions[6].name, user.id)}
                   />
                 </div>
-                {/* ----group1---- */}
                 <div className="settings-group">
                   {user.permissions &&
                     user.permissions.slice(0, 5).map((item, index) => {
@@ -174,7 +160,6 @@ const Settings = ({ user, toggle, statusHandler, detailsUpdate }) => {
                             ></div>
                             <div className="settings-name">{item.name}</div>
                           </div>
-
                           <img
                             className="settings-permission-toggle"
                             src={`images/${
@@ -186,7 +171,6 @@ const Settings = ({ user, toggle, statusHandler, detailsUpdate }) => {
                       );
                     })}
                 </div>
-                {/* ----group---- */}
                 <div className="settings-permission-divider"></div>
                 <div className="settings-group-container">
                   <img
@@ -224,7 +208,6 @@ const Settings = ({ user, toggle, statusHandler, detailsUpdate }) => {
                 <div className="settings-permission-divider"></div>
               </div>
             </div>
-            {/* -------end------ */}
           </div>
         </div>
       </div>

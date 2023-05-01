@@ -15,7 +15,6 @@ let getUsers = () => {
 function App() {
   const [users, setUsers] = useState(getUsers());
   const [user, setUser] = useState(null);
-
   const [btn, setBtn] = useState(0);
   const [modal, setModal] = useState(false);
 
@@ -27,14 +26,13 @@ function App() {
     localStorage.setItem('users', JSON.stringify(users));
   }, [users]);
 
-  const addHandler = () => {
-    toggleModal(!modal);
+  const addHandler = (name, lastname, email, role) => {
     setUsers([
       {
-        name: 'name',
-        lastname: 'lastname',
-        email: 'test@gmail.com',
-        role: 'admin',
+        name: name,
+        lastname: lastname,
+        email: email,
+        role: role,
         status: true,
         id: Date.now(),
         permissions: permissionsData,

@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+
 import './User.css';
 
-const User = ({ user, delHandler, userPicker, key, statusHandler }) => {
+const User = ({ user, delHandler, userPicker, statusHandler }) => {
   return (
     <>
       <div className="user-container">
@@ -11,7 +11,6 @@ const User = ({ user, delHandler, userPicker, key, statusHandler }) => {
           src="/images/avatar.svg"
           alt="avatar"
         />
-
         <div className={user.status ? 'user-info' : 'user-info-opacity'}>
           <div className="user-name">{user.name + '  ' + user.lastname}</div>
           <div className="user-email">{user.email}</div>
@@ -27,8 +26,6 @@ const User = ({ user, delHandler, userPicker, key, statusHandler }) => {
         </div>
 
         <div className="user-status">
-          {/* {user.status} */}
-
           <img
             src={`/images/${user.status ? 'toggle.svg' : 'toggle-red.svg'} `}
             alt="toggle"
@@ -38,7 +35,6 @@ const User = ({ user, delHandler, userPicker, key, statusHandler }) => {
             className="user-toggleBtn"
           />
         </div>
-
         <div className="user-actions">
           {user.status && (
             <Link
@@ -52,15 +48,15 @@ const User = ({ user, delHandler, userPicker, key, statusHandler }) => {
               />
             </Link>
           )}
-
           <img
             src="/images/del.svg"
-            onClick={() => delHandler(user.id)}
+            onClick={() => {
+              delHandler(user.id);
+            }}
             className={'user-actions-del'}
           />
         </div>
       </div>
-
       <div className="user-divider"></div>
     </>
   );
