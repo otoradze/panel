@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { data, permissionsData } from './shared/modal/data';
 import Table from './features/Table/Table';
 import Settings from './features/Settings/Settings';
-
+console.log(1);
 let getUsers = () => {
   if (localStorage.getItem('users')) {
     return JSON.parse(localStorage.getItem('users'));
