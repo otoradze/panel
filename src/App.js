@@ -11,7 +11,9 @@ let getUsers = () => {
     return data;
   }
 };
-
+console.log('1');
+console.log('2');
+console.log('2');
 function App() {
   const [users, setUsers] = useState(getUsers());
   const [user, setUser] = useState(null);
