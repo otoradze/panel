@@ -1,5 +1,5 @@
 // would like to talk about this
-
+console.log('test2');
 // import { data } from '../modal/data';
 // const client = new Client({ node: 'http://localhost:9200' });
 // export async function searchData(query) {
