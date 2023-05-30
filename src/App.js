@@ -11,7 +11,7 @@ let getUsers = () => {
     return data;
   }
 };
-
+console.log('master1');
 function App() {
   const [users, setUsers] = useState(getUsers());
   const [user, setUser] = useState(null);
